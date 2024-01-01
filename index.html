@@ -8,30 +8,41 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <title>Portfolio</title>
+    <title>Gonzalo Ramirez | Data Analyst</title>
 
     <!-- Importar el archivo animation.js -->
     <script type="module" src="js/animation.js"></script>
 </head>
 <body class="body">
 
+    <!--Animación de partículas-->
+    <div id="particles-js"></div>
+
     <header class="header">
         <div class="header__linkedin">
-            <a class="header__link" href="http://">
-                <img class="header__icon" src="/resources/linkedin__icon.svg" alt="Icono de Linkedin">
+            <a class="header__link" href="https://www.linkedin.com/in/gonzaramirez95/" target="_blank">
+                <img class="header__icon" src="/resources/linkedin_icon.svg" alt="Icono de Linkedin">
 
                 <p class="header__p">Seguime en Linkedin</p>
             </a>
         </div>
 
-        <div class="header__menu">
+        <nav class="header__menu" id="header__menu">
             <ul class="header__ul">
-                <li class="header__li">Inicio</li>
-                <li class="header__li">¿Quién soy?</li>
-                <li class="header__li">Stack de herramientas</li>
-                <li class="header__li">Trabajos</li>
+                <li class="header__li"><a class="header__a" href="#">Inicio</a></li>
+                <li class="header__li"><a class="header__a" href="#quiensoy">¿Quién soy?</a></li>
+                <li class="header__li"><a class="header__a" href="#">Stack de herramientas</a></li>
+                <li class="header__li"><a class="header__a" href="#">Trabajos</a></li>
             </ul>
-        </div>
+
+            <a class="header__hamburguer" href="#header__menu">
+                <img class="header__hamburguer header__hamburguer--icon" src="resources/hamburguer_icon.svg" alt="Icono de menu">
+            </a>
+
+            <a class="header__close" href="#">
+                <img class="header__close header__close--icon" src="resources/close_icon.svg" alt="Icono de menu">
+            </a>
+        </nav>
     </header>
     
     <section class="main">
@@ -63,12 +74,61 @@
             </div>
         </div>
     
-    
         <div class="name">
-            <p class="name__title">Gonzalo Ramirez</p>
+            <h1 class="name__title">Gonzalo Ramirez</h1>
             <p class="name__subtitle">Data Analyst</p>
         </div>
     </section>
+
+
+    <section class="quiensoy" id="quiensoy">
+        
+        <div class="quiensoy__wrapper">
+
+            <!--
+            <img class="quiensoy__icon quiensoy__icon--excel" src="/resources/excel_icon.svg" alt="Icono de Excel">
+
+            <img class="quiensoy__icon quiensoy__icon--python" src="/resources/python_icon.svg" alt="Icono de Python">
+            -->
+
+            <img class="quiensoy__picture" src="resources/foto_perfil.png" alt="Foto de perfil">
+
+            <div class="quiensoy__container">
+                <h2 class="quiensoy__title">¿Quién soy?</h2>
+                <p class="quiensoy__paragraph">
+                    Hola, actualmente tengo 28 años y me encuentro 
+                    cursando la Licenciatura en Ciencias de Datos 
+                    en la Universidad Nacional de Almirante Brown.
+                </p>
+                <p class="quiensoy__paragraph">
+                    Mi pasión por la lectura, la programación y el análisis de datos 
+                    me ha llevado a desarrollar una curiosidad intelectual incesante, 
+                    la cual me impulsa constantemente a adquirir nuevas herramientas 
+                    y habilidades.
+                </p>
+                <p class="quiensoy__paragraph">
+                    En mi rol actual, desempeño funciones como analista de datos 
+                    y coordinador general del área de reclamos en el 
+                    Ministerio de Espacio Público e Higiene Urbana de la 
+                    Ciudad Autónoma de Buenos Aires.
+                </p>
+                <p class="quiensoy__paragraph">
+                    En mi búsqueda de crecimiento profesional, mi próxima meta 
+                    incluye la finalización de mis estudios, así como la aspiración 
+                    de ampliar mis conocimientos a través de experiencias internacionales. 
+                    Considero que la capacitación continua y la exposición a contextos 
+                    diversos son fundamentales para un desarrollo integral. 
+                    Estoy ansioso por contribuir con mis habilidades y conocimientos 
+                    en un entorno laboral desafiante y en constante evolución.
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!--CDN de la librería de partículas-->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
  
 </body>
 </html>
