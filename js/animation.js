@@ -16,11 +16,39 @@ function animationBars(){
     });
 
     Array.from(barsFront).forEach((bar, i)=>{
-        bar.classList.add(`bar__front--${i+1}`)
+        bar.classList.add(`bar__front--${i+1}`);
     })
 }
 
 animationBars();
+
+
+/*Controles del menu responsive*/
+const nav            = document.getElementById("header__menu");
+const backgroundMenu = document.getElementById("header__background");
+const hamburguerIcon = document.getElementById("header__hamburguer");
+const closeIcon      = document.getElementById("header__close");
+const listLi         = document.getElementsByClassName("header__li");
+
+function showMenu(){
+  nav.style.right = "0px";
+  backgroundMenu.style.display = "block";
+};
+
+function hiddenMenu(){
+  nav.style.right = "-100%"
+  backgroundMenu.style.display = "none";
+}
+
+hamburguerIcon.addEventListener("click", showMenu);
+closeIcon.addEventListener("click", hiddenMenu);
+backgroundMenu.addEventListener("click", hiddenMenu);
+
+Array.from(listLi).forEach(list => {
+
+  list.addEventListener("click", hiddenMenu);
+  
+});
 
 
 /*----------------------------------------------------------------------------------------------*/
