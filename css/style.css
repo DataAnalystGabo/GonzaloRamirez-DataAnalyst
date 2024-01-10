@@ -358,6 +358,7 @@ html {
     /*Menu responsive*/
     .header{
        width: 80%;
+       max-width: 767px;
     }
 
     .header__background{
