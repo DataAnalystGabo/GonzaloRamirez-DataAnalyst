@@ -20,12 +20,15 @@ html {
 /* Header */
 
 .header{
+    width: 100%;
+    max-width: 1600px;
     display: flex;
     position: relative;
     justify-content: space-between;
     align-items: center;
     padding: 2em 2em;
     z-index: 2;
+    margin: 0 auto;
 }
 
 .header__linkedin{
@@ -353,6 +356,10 @@ html {
 @media only screen and (max-width: 767px) {
 
     /*Menu responsive*/
+    .header{
+       width: 80%;
+    }
+
     .header__background{
         width: 100%;
         height: 100vh;
@@ -427,6 +434,7 @@ html {
     
     /*Sección ¿Quién Soy?*/
     .quiensoy__wrapper{
+        width: 80%;
         flex-direction: column;
     }
 
@@ -440,6 +448,7 @@ html {
 
     /*Sección Stack de Herramientas*/
     .stack__wrapper{
+        width: 80%;
         align-items: center;
     }
 
