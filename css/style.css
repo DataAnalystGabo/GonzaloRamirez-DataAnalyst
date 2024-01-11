@@ -15,6 +15,7 @@ html {
     background-color: #040D12;
     color: #93B1A6;
     font-family: 'Public Sans', sans-serif;
+    overflow-x: hidden;
 }
 
 /* Header */
@@ -358,7 +359,7 @@ html {
     /*Menu responsive*/
     .header{
        width: 80%;
-       max-width: 767px;
+       max-width: 100vw;
     }
 
     .header__background{
