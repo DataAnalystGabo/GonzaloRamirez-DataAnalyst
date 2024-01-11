@@ -260,6 +260,7 @@ html {
     width: 60%;
     max-width: 1200px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 2em;
