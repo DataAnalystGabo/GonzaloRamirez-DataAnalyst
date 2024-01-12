@@ -376,8 +376,13 @@ html {
         transition: all .5s ease-in-out;
     }
 
+    .header__hamburguer{
+        width: 1.7em;
+        display: block;
+    }
+
     .header__menu{
-        width: 60%;
+        width: 70%;
         height: 100vh;
         position: fixed;
         top: 0;
@@ -407,14 +412,6 @@ html {
         display: block;
         width: 1.6em;
         padding-right: 1em;
-    }
-
-    .header__hamburguer{
-        width: 1.7em;
-        display: block;
-        position: fixed;
-        top: 2.2em;
-        right: 1.5em;
     }
 
     .header__close{
