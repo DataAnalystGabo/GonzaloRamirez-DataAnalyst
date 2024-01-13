@@ -331,6 +331,65 @@ html {
     font-size: 1.2em;
 }
 
+/*-----------------------------------------------------------------*/
+/*Seccion Trabajos*/
+
+.projects{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.projects__wrapper{
+    width: 60%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin: 4em 0;
+    z-index: 1;
+}
+
+.projects__title{
+    font-size: 3em;
+    margin: 0 0 1em 0;
+}
+
+.work{
+    display: flex;
+    flex-direction: column;
+    margin: 1em 0 4em 0;
+    padding: 1em 0 0 0;
+    border-top: 3px solid rgba(149, 178, 167, .5);
+}
+
+.work__link{
+    margin-bottom: 1em;
+    color: #93B1A6;
+    text-decoration: none;
+    transition: opacity 0.4s ease;
+}
+
+.work__link:hover{
+    opacity: .6;
+}
+
+.work__title{
+    padding: 0;
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.work__paragraph{
+    padding: 0;
+    margin: 0;
+    font-size: 1.2em;
+}
+
+
+
 /* Estilos para tablets */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 
@@ -455,4 +514,11 @@ html {
     .stack__li{
         flex-direction: column;
     }
+
+    /*Sección Trabajos*/
+    .projects__wrapper{
+        width: 80%;
+        align-items: center;
+    }
+
 }
