@@ -216,10 +216,10 @@ html {
 /*Nombre y Apellido - Profesión*/
 
 .name{
-    width: max-content;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
+    border: 1px solid green;
 }
 
 .name__title{
