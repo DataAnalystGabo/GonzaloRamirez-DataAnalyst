@@ -236,14 +236,14 @@ html {
     opacity: 1;
 }
 
-.name__subtitle{
+/* .name__subtitle{
     font-size: 1.2em;
     font-weight: 100;
     color: #93B1A6;
     opacity: 0;
     transition: opacity 5s ease-in-out;
     border: 1px solid yellow;
-}
+} */
 
 .name__subtitle--active{
     opacity: 1;
