@@ -237,13 +237,12 @@ html {
 }
 
 .name__subtitle{
-    padding: 0;
-    margin: 0 -28em 0 0;
     font-size: 1.2em;
     font-weight: 100;
     color: #93B1A6;
     opacity: 0;
     transition: opacity 5s ease-in-out;
+    border: 1px solid yellow;
 }
 
 .name__subtitle--active{
