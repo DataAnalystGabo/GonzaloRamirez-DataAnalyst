@@ -16,7 +16,6 @@ html {
     color: #93B1A6;
     font-family: 'Public Sans', sans-serif;
     overflow-x: hidden;
-    border: 1px solid red;
 }
 
 /* Header */
@@ -218,12 +217,9 @@ html {
 .name{
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
-    border: 1px solid green;
 }
 
 .name__title{
-    padding: 0;
     margin: 0;
     font-size: 5em;
     font-weight: 700;
@@ -236,14 +232,13 @@ html {
     opacity: 1;
 }
 
-/* .name__subtitle{
+.name__subtitle{
     font-size: 1.2em;
     font-weight: 100;
     color: #93B1A6;
     opacity: 0;
     transition: opacity 5s ease-in-out;
-    border: 1px solid yellow;
-} */
+}
 
 .name__subtitle--active{
     opacity: 1;
@@ -362,7 +357,6 @@ html {
        width: 80%;
        max-width: 100vw;
        overflow-x: hidden;
-       border: 1px solid yellow;
     }
 
     .header__background{
@@ -381,7 +375,6 @@ html {
     .header__hamburguer{
         width: 1.7em;
         display: block;
-        border: 1px solid yellow;
     }
 
     .header__menu{
@@ -394,14 +387,12 @@ html {
         background-color: #040D12;
         border-left: .1em solid #93B1A6;
         transition: all .5s ease-in-out;
-        border: 1px solid yellow;
     }
 
     .header__ul{
         height: max-content;
         flex-direction: column;
         justify-content: space-between;
-        border: 1px solid yellow;
     }
 
     .header__li{
@@ -411,7 +402,6 @@ html {
         justify-content: end;
         margin: 2em 0;
         font-weight: 300;
-        border: 1px solid yellow;
     }
 
     .header__icons{
@@ -426,52 +416,43 @@ html {
         position: absolute;
         top: 1em;
         right: 1em;
-        border: 1px solid yellow;
     }
 
     /*Pagina de inicio*/
     .name__title{
         font-size: 2em;
-        border: 1px solid green;
     }
 
     .name__subtitle{
-        margin: 0 -10.5em 0 0;
+        margin: 0;
         font-size: 1em;
-        border: 1px solid green;
     }
     
     /*Sección ¿Quién Soy?*/
     .quiensoy__wrapper{
         width: 80%;
         flex-direction: column;
-        border: 1px solid green;
     }
 
     .quiensoy__picture{
         width: 15em;
-        border: 1px solid green;
     }
 
     .quiensoy__container{
         margin-top: 2em;
-        border: 1px solid green;
     }
 
     /*Sección Stack de Herramientas*/
     .stack__wrapper{
         width: 80%;
         align-items: center;
-        border: 1px solid green;
     }
 
     .stack__title{
         font-size: 2em;
-        border: 1px solid green;
     }
 
     .stack__li{
         flex-direction: column;
-        border: 1px solid green;
     }
 }
