@@ -40,7 +40,21 @@
 }
 
 .article__footer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
     padding: .5em .5em .5em 1em;
     margin: 4em 0;
     border: 1px solid rgba(149, 178, 167, .5);
+}
+
+/* Estilos para dispositivos móviles */
+@media only screen and (max-width: 767px) {
+
+    .article{
+        width: 80%;
+    }
+    
+
 }
