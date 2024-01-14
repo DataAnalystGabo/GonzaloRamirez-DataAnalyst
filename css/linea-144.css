@@ -36,7 +36,7 @@
 .article__pdf{
     width: 100%;
     height: 100vh;
-    margin-top: 3em;
+    margin: 3em 0;
 }
 
 .article__footer{
@@ -49,6 +49,14 @@
     border: 1px solid rgba(149, 178, 167, .5);
 }
 
+.pre{
+    width: 100%;
+    display: flex;
+    align-self: center;
+}
+
+
+
 /* Estilos para dispositivos móviles */
 @media only screen and (max-width: 767px) {
 
@@ -56,5 +64,11 @@
         width: 80%;
     }
     
+    .article__pdf{
+        max-width: 100%;
+    }
 
+    .pre{
+        width: 100%;
+    }
 }

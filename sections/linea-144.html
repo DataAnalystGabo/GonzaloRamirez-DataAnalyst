@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/linea-144.css">
+    <link rel="stylesheet" href="/css/prism.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <title>Gonzalo Ramirez | Análisis descriptivo Linea 144</title>
 
-    <!-- Importar el archivo animation.js -->
-    <script type="module" src="/js/animation.js"></script>
+    <!-- Importar Modulos Js -->
+    <script type="module" src="/js/menu.js"></script>
+    <script type="module" src="/js/prism.js"></script>
 </head>
 
 <body class="body">
@@ -43,6 +47,239 @@
         <p class="article__description">El repositorio con el código lo puedes encontrar <a class="article__link" href="https://github.com/DataAnalystGabo/Analisis-Exploratorio-de-Datos-Linea-144" target="_blank">haciendo click aquí</a>. Adempas, te dejaré la versión pdf de mi análisis que lo podrás descargar y el código que escribí.</p>
 
         <iframe class="article__pdf" src="/resources/analisis-linea-144.pdf" frameborder="0"></iframe>
+
+        <p class="article__description pre">A continuación, el código:</p>
+
+        <pre class="language-python"><code class="language-python">
+            import pandas as pd
+            import numpy as np
+            import matplotlib.pyplot as plt
+            import seaborn as sns
+
+            #Almacenamos nuestros tablas en variables con la función rad_csv de Pandas.
+            df_2020 = pd.read_csv("../Dataframes/linea144-2020.csv")
+            df_2021 = pd.read_csv("../Dataframes/linea144-2021.csv")
+            df_2022 = pd.read_csv("../Dataframes/linea144-2022.csv")
+            df_2023 = pd.read_csv("../Dataframes/linea144-2023.csv")
+
+            #En esta celda iremos manipulando nuestras dataframes para que al momento de concatenar los 4 archivos no tengamos ninguna complicación.
+            df_2022.pop(df_2022.columns[-1])
+            df_2022 = df_2022.rename(columns={
+                'Fecha': 'fecha'
+            })
+
+            df_2023 = df_2023.rename(columns={
+                'Fecha': 'fecha'
+            })
+
+            dataframes = [df_2020, df_2021, df_2022, df_2023]
+            df         = pd.concat(dataframes, ignore_index=True)
+
+            #Eliminamos los filas duplicadas y tratamos los valores nulos.
+            df = df.drop_duplicates()
+            df = df.fillna('Missing')
+
+            #Hechamos un primer vistazo a nuestro dataframe con la función head()
+            df.head()
+
+            #Creamos un dataframe que contengan la cantidad de llamados según la edad del denunciante.
+            df_edades = df['edad_persona_en_situacion_de_violencia'].value_counts()
+            df_edades = pd.DataFrame({'Edad': df_edades.index, 'Cantidad de llamadas': df_edades.values})
+            df_edades = df_edades[df_edades['Edad'] != 'Missing']
+            df_edades = df_edades.sort_values(by='Edad', ascending=True)
+            df_edades
+
+            #Calculamos la edad media de los llamantes.
+            edad_media_llamantes = round(df_edades['Edad'].mean(), 0)
+            edad_media_llamantes
+
+            #Graficamos la distribución de la edad de los llamantes.
+
+            plt.figure(figsize=(6,6), dpi=120)
+
+            sns.lineplot(data=df_edades,
+                        x='Edad', y='Cantidad de llamadas',
+                        linewidth=2,
+                        color='#e0b1cb')
+
+            ax = plt.gca()
+            ax.spines['bottom'].set_color('#9f86c0')
+            ax.spines['bottom'].set_linewidth(1.5)
+            ax.spines['left'].set_color('#9f86c0')
+            ax.spines['left'].set_linewidth(1.5)
+            ax.tick_params(axis='x', which='both', color='#9f86c0', width=1.5, length=5, labelcolor='#9f86c0')
+            ax.tick_params(axis='y', which='both', color='#9f86c0', width=1.5, length=5, labelcolor='#9f86c0')
+            ax.set_ylabel('Cantidad de llamados', color='#9f86c0', labelpad=15, size=11)
+            ax.set_xlabel('Rango de edades (en años)', color='#9f86c0', labelpad=15, size=11)
+
+            text_info = f'Edad media de los llamantes: {edad_media_llamantes: .0f} años'
+
+            plt.text(0.45, 0.5, 
+                    text_info, 
+                    transform=ax.transAxes, 
+                    color='white', fontsize=11,
+                    bbox=dict(facecolor='#e0b1cb', edgecolor='#e0b1cb', pad=6))
+
+            sns.despine(trim=True)
+            plt.show();
+
+            #Generamos una tabla con todos los géneros declarados y la cantidad total de llamados por cada uno de ellos.
+            df['genero_persona_en_situacion_de_violencia'] = df['genero_persona_en_situacion_de_violencia'].replace({
+                'Transgénero': 'Transgenero',
+                'Varón Trans': 'Varon trans',
+                'Varon Trans': 'Varon trans'
+            })
+            generos = df['genero_persona_en_situacion_de_violencia'].value_counts()
+            generos = pd.DataFrame({'Género': generos.index, 'Conteo': generos.values})
+            generos =  generos[generos['Género'] != 'Missing']
+            generos
+
+            #En estas líneas de código, excluimos el género MUJER con el objetivo de graficar los demás géneros.
+            generos_otros = generos[generos['Género'] != 'Mujer']
+            generos_otros;
+
+            #Por último, agrupamos todos los géneros que sean distintos al de la categoría mujer con el objetivo de comparar proporciones númericas entre ambas variables.
+            generos.loc[~generos['Género'].isin(['Mujer']), 'Género'] = 'Otros'
+            generos_mujer_y_otros = generos.groupby('Género', as_index=False).sum()
+            generos_mujer_y_otros;
+
+            fig, ax = plt.subplots(figsize = (6,6), 
+                       dpi = 120)
+
+            palette = ['#E0B1CB', '#BE95C4', '#9F86C0', '#5E548E', '#231942']
+
+            ax.pie(generos_mujer_y_otros['Conteo'],
+                colors  = palette[0:4:3],
+                frame   = True)
+
+            ax = plt.gca()
+            ax.spines['bottom'].set_color('#9f86c0')
+            ax.spines['bottom'].set_linewidth(1.5)
+            ax.spines['left'].set_color('#9f86c0')
+            ax.spines['left'].set_linewidth(1.5)
+            ax.tick_params(axis='x', which='both', color='#9f86c0', width=1.5, length=5, labelcolor='#9f86c0')
+            ax.tick_params(axis='y', which='both', color='#9f86c0', width=1.5, length=5, labelcolor='#9f86c0')
+
+            sns.despine(trim=True)
+
+            arrow_props = dict(arrowstyle = '->', connectionstyle = 'arc3,rad=0.3', color = '#5E548E')
+            plt.annotate('Otros géneros', 
+                        xy = (0.8, -0.01), xytext = (1, 0.5),
+                        fontsize = 9, 
+                        color = '#5E548E', 
+                        fontweight = 'normal',
+                        arrowprops = arrow_props,
+                        alpha = 0.7)
+
+            plt.annotate('¿Qué representa\n    el color rosa?',
+                        xy = (-0.48, 0.2),
+                        fontsize = 16, 
+                        color = '#5E548E', 
+                        fontweight = 'bold',
+                        alpha = 0.7)
+
+            plt.annotate('      Las 81.204 mujeres\nque denunciaron algún tipo \n    de violencia de género.',
+                        xy = (-0.5, -0.5),
+                        fontsize = 12, 
+                        color = '#5E548E', 
+                        fontweight = 'normal',
+                        alpha = 0.7)
+
+            plt.show()
+
+            fig, ax = plt.subplots(figsize = (6,6), dpi = 120)
+
+            palette2 = ['#7bdff2', '#b2f7ef', '#eff7f6', '#f7d6e0', '#f2b5d4', '#b8bedd', '#f0e6ef', '#efc3e6', '#f0a6ca', '#9c89b8', '#fde2e4', '#fad2e1', '#bcd4e6']
+            explode  = [0.1, 0, 0, 0, 0, 0, 0, 0, 0]
+
+            ax.pie(generos_otros['Conteo'],
+                colors    = palette2,
+                frame     = True,
+                explode   = explode)
+
+            ax = plt.gca()
+            ax.spines['bottom'].set_color('#9f86c0')
+            ax.spines['bottom'].set_linewidth(1.5)
+            ax.spines['left'].set_color('#9f86c0')
+            ax.spines['left'].set_linewidth(1.5)
+            ax.tick_params(axis='x', which='both', color='#9f86c0', width=1.5, length=5, labelcolor='#9f86c0')
+            ax.tick_params(axis='y', which='both', color='#9f86c0', width=1.5, length=5, labelcolor='#9f86c0')
+
+            legend_elements = [plt.Line2D([0], [0], 
+                                        marker = 'o', 
+                                        color  = 'w', 
+                                        label  = f"{label} : {percentage:.1f}%", 
+                                        markerfacecolor = color, 
+                                        markersize = 12)
+                                        for label, color, percentage in zip(generos_otros['Género'], palette2, generos_otros['Conteo'] / generos_otros['Conteo'].sum() * 100)]
+
+            ax.legend(handles        = legend_elements, 
+                    bbox_to_anchor = (1.05, 1),
+                    labelspacing   = 1,
+                    loc            = 'upper left',
+                    fontsize       = 10,
+                    labelcolor     = '#231942',
+                    frameon        = False)
+
+            sns.despine(trim=True)
+
+            plt.show()
+
+            df['fecha']           = pd.to_datetime(df['fecha'])
+            df_mes_año            = df.groupby(df['fecha'].dt.to_period('M'))
+            df_mes_año            = df_mes_año.size()
+            df_mes_año            = pd.DataFrame({'Periodo': df_mes_año.index, 'Llamados': df_mes_año.values})
+            df_mes_año['Periodo'] = df_mes_año['Periodo'].dt.to_timestamp()
+            df_mes_año
+
+            max = df_mes_año['Llamados'].idxmax()
+            min = df_mes_año['Llamados'].idxmin()
+
+            plt.figure(figsize=(6,6), dpi=120)
+            #max = df_mes_año['Registros'].idmax()
+
+            sns.lineplot(x='Periodo', y='Llamados', data=df_mes_año,
+                        linewidth=2,
+                        color='#e0b1cb')
+
+            plt.xticks(rotation=45, ha='right')
+
+            ax = plt.gca()
+            ax.spines['bottom'].set_color('#9f86c0')
+            ax.spines['bottom'].set_linewidth(1.5)
+            ax.spines['left'].set_color('#9f86c0')
+            ax.spines['left'].set_linewidth(1.5)
+            ax.tick_params(axis='x', which='both', color='#9f86c0', width=1.5, length=5, labelcolor='#9f86c0')
+            ax.tick_params(axis='y', which='both', color='#9f86c0', width=1.5, length=5, labelcolor='#9f86c0')
+            ax.set_ylabel('Cantidad de llamados', color='#9f86c0', labelpad=15, size=11)
+            ax.set_xlabel('Periodo', color='#9f86c0', labelpad=15, size=11)
+
+
+            #--------------------------------------------------------------------------------------------------------#
+            #Puntos máximos y mínimos.
+            plt.plot(df_mes_año['Periodo'][max], df_mes_año['Llamados'][max], 'o', markersize=5, color='#9f86c0')
+
+            plt.annotate(f'Máximo histórico', 
+                        xy=(df_mes_año['Periodo'][max], df_mes_año['Llamados'][max]),
+                        xytext=(8, -4), 
+                        textcoords='offset points', 
+                        color='#9f86c0',
+                        fontsize=9)
+
+            plt.plot(df_mes_año['Periodo'][min], df_mes_año['Llamados'][min], 'o', markersize=5, color='#9f86c0')
+
+            plt.annotate(f'Mínimo histórico', 
+                        xy=(df_mes_año['Periodo'][min], df_mes_año['Llamados'][min]),
+                        xytext=(8, -4), 
+                        textcoords='offset points', 
+                        color='#9f86c0',
+                        fontsize=9)
+            #--------------------------------------------------------------------------------------------------------#
+
+            sns.despine(trim=True)
+
+            plt.show()
+        </code></pre>        
 
         <footer class="article__footer">
             <p class="article__author">Autor: Gonzalo Ramirez | Data Analyst</p>
