@@ -44,9 +44,14 @@
     display: flex;
     flex-direction: column;
     align-self: center;
-    padding: .5em .5em .5em 1em;
+    padding: 1.5em .5em .5em 1em;
     margin: 4em 0;
-    border: 1px solid rgba(149, 178, 167, .5);
+    border-top: 1px solid rgba(149, 178, 167, .5);
+}
+
+.article__author{
+    padding: 0;
+    margin: .5em 0 .5em 0;
 }
 
 .pre{
