@@ -276,7 +276,7 @@ html {
 }
 
 .quiensoy__title{
-    font-size: 2em;
+    font-size: 3em;
     font-weight: 800;
 }
 
@@ -358,6 +358,7 @@ html {
 }
 
 .work{
+    width: 100%;
     display: flex;
     flex-direction: column;
     margin: 1em 0 4em 0;
