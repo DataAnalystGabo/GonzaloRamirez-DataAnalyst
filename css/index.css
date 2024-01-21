@@ -306,6 +306,7 @@ html {
 
 .stack__title{
     font-size: 3em;
+    font-weight: 800;
 }
 
 .stack__ul{
@@ -356,6 +357,8 @@ html {
 .projects__title{
     font-size: 3em;
     margin: 0 0 1em 0;
+    align-self: self-start;
+    font-weight: 800;
 }
 
 .work{
@@ -501,6 +504,10 @@ html {
         width: 15em;
     }
 
+    .quiensoy__title{
+        font-size: 2em;
+    }
+
     .quiensoy__container{
         margin-top: 2em;
     }
@@ -523,6 +530,10 @@ html {
     .projects__wrapper{
         width: 80%;
         align-items: center;
+    }
+
+    .projects__title{
+        font-size: 2em;
     }
 
 }
