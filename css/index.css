@@ -1,3 +1,9 @@
+:root{
+    --primary-color: #AECEC4;
+    --secondary-color: #93B1A6;
+    --background-color: #040D12;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -12,10 +18,11 @@ html {
 
 .body{
     width: 100vw;
-    background-color: #040D12;
-    color: #93B1A6;
+    background-color: var(--background-color);
+    color: var(--primary-color);
     font-family: 'Public Sans', sans-serif;
     overflow-x: hidden;
+    font-size: 1em;
 }
 
 /*----------------------Header---------------------------------------------------- */
@@ -44,7 +51,7 @@ html {
     flex-direction: row;
     align-items: center;
     text-decoration: none;
-    color: #93B1A6;
+    color: var(--primary-color);
     font-weight: 500;
     transition: opacity 0.4s ease;
 }
@@ -88,7 +95,7 @@ html {
 
 .header__a{
     text-decoration: none;
-    color: #93B1A6;
+    color: var(--primary-color);
 }
 
 .header__hamburguer{
@@ -168,7 +175,7 @@ html {
     bottom: 0;
     left: 0;
     z-index: 1;
-    background-color: #93B1A6;
+    background-color: var(--primary-color);
 }
 
 .bar__front--1{
@@ -204,7 +211,7 @@ html {
 .chart__bar{
     width: 0;
     height: .18em;
-    background-color: #93B1A6;
+    background-color: var(--primary-color);
     transition: width 2s ease-in-out;
 }
 
@@ -224,7 +231,7 @@ html {
     margin: 0;
     font-size: 5em;
     font-weight: 700;
-    color: #93B1A6;
+    color: var(--primary-color);
     opacity: 0;
     transition: opacity 5s ease-in-out;
 }
@@ -236,7 +243,7 @@ html {
 .name__subtitle{
     font-size: 1.2em;
     font-weight: 100;
-    color: #93B1A6;
+    color: var(--primary-color);
     opacity: 0;
     transition: opacity 5s ease-in-out;
 }
@@ -379,7 +386,7 @@ html {
 }
 
 .work__link{
-    color: #93B1A6;
+    color: var(--primary-color);
     text-decoration: none;
     transition: opacity 0.4s ease;
 }
@@ -415,9 +422,20 @@ html {
     background-color: #85aac636;
 }
 
+.pill--postgresql{
+    border: 1.5px solid #40A2E3;
+    background-color: #40a2e32b;
+}
+
+.pill--folium{
+    border: 1.5px solid #38DB00;
+    background-color: #37db0026;
+}
+
+
 .pill__icon{
     width: 1em;
-    *border: 1px solid yellow;
+    height: 1em;
 }
 
 .pill__paragraph{
@@ -441,6 +459,13 @@ html {
     color: #B2D6DE;
 }
 
+.pill__paragraph--postgresql{
+    color: #40A2E3;
+}
+
+.pill__paragraph--folium{
+    color: #38DB00;
+}
 
 .work__title{
     padding: 0;
@@ -512,7 +537,7 @@ html {
         right: -100%;
         padding: 6em 1.5em 6em 0;
         background-color: #040D12;
-        border-left: .1em solid #93B1A6;
+        border-left: .1em solid var(--primary-color);
         transition: all .5s ease-in-out;
     }
 

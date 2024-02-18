@@ -1,0 +1,155 @@
+.article{
+    width: 60%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding-top: 4em;
+}
+
+.article__header{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5em;
+    border-bottom: 3px solid rgba(149, 178, 167, .5);
+}
+
+.article__title{
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
+.article__description{
+    font-size: 1.2em;
+    margin: 0 0 .7em 0;
+}
+
+/*================================================================================================================================
+==================================================================================================================================*/
+.top5ofertas{
+    margin: 4em 0;
+    *border: 1px solid yellow;
+}
+
+
+.top5ofertas__title{
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    border-bottom: 3px solid rgba(149, 178, 167, .5);
+}
+
+
+.top5ofertas__subtitle{
+    font-size: 1.2em;
+}
+
+
+.top5ofertas__grid{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4em;
+    justify-content: start;
+    margin: 4em 0 8em 0;
+}
+
+
+.top5ofertas__card{
+    display: flex;
+    flex-direction: row;
+    width: max-content;
+    gap: 1em;
+}
+
+
+.top5ofertas__poligono{
+    width: 9em;
+}
+
+.top5ofertas__poligono:hover{
+    opacity: .5;
+}
+
+.top5ofertas__data{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.top5ofertas__freq{
+    font-size: 3em;
+    font-weight: 800;
+}
+
+
+.top5ofertas__neightbord{
+    font-size: 3em;
+    font-weight: 600;
+}
+
+
+.top5ofertas__map{
+    width: 100%;
+    height: 50em;
+}
+/*================================================================================================================================
+==================================================================================================================================*/
+.article__footer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    padding: 1.5em .5em .5em 1em;
+    margin: 4em 0;
+    color: var(--primary-color);
+    border-top: 1px solid rgba(149, 178, 167, .5);
+}
+
+.article__author{
+    padding: 0;
+    margin: .5em 0 .5em 0;
+}
+
+.pre{
+    width: 100%;
+    display: flex;
+    align-self: center;
+}
+
+
+
+/* Estilos para dispositivos móviles */
+@media only screen and (max-width: 767px) {
+
+    .article{
+        width: 80%;
+    }
+    
+
+    .article__pdf{
+        max-width: 100%;
+    }
+
+
+    .pre{
+        width: 100%;
+    }
+
+
+    .top5ofertas__card{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+
+    .top5ofertas__data{
+        justify-content: center;
+    }
+    
+
+    .top5ofertas__freq{
+        text-align: center;
+    }
+}
