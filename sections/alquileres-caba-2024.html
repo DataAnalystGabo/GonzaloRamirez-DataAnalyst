@@ -96,7 +96,20 @@
 
         <section class="dataframe" id="dataframe">
             <h2 class="dataframe__title">El dataframe</h2>
-            <p class="dataframe__p">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga officia illo ab vero. Aspernatur eos accusantium dolore corrupti dicta harum ipsa. Placeat inventore asperiores adipisci consequuntur autem ullam, unde veritatis?</p>
+            <p class="dataframe__p">Nuestro dataframe final, luego de someterlo a un exhaustivo proceso de transformación y limpieza de los datos, agrupa un total de 1747 registros con 21 variables entre categóricas y numéricas.
+            </p>
+
+            <p class="dataframe__p">El proceso de limpieza se llevó a cabo con PostgreSQL en el entorno de Visual Studio Code. Sólo por mencionar algunas de las tareas centrales durante esta etapa, se detallan las siguientes acciones:</p>
+
+            <ul class="dataframe__ul">
+                <li class="dataframe__li">A. Eliminación de los registros duplicados.</li>
+                <li class="dataframe__li">B. Tratamiento de los valores nulos.</li>
+                <li class="dataframe__li">C. Modelado y creación de la base de datos y su tabla.</li>
+                <li class="dataframe__li">D. Normalización de los valores de las categorías "m2_totales", "m2_cubiertos", y "m2_balcon".</li>
+                <li class="dataframe__li">E. Normalización y conversión de los valores en dólares a pesos argentinos.</li>
+            </ul>
+
+            <p class="dataframe__p">Si te interesa leer el código, podés hacerlo haciendo <a class="dataframe__a" href="https://github.com/DataAnalystGabo/Alquileres-CABA/blob/main/transform_and_load.sql" target="_blank">click aquí</a>. A continuación, te dejo una tabla que sintetiza los aspectos centrales de nuestro conjunto de datos.</p>
 
             <div class="dataframe__wrapper">
                 <table class="dataframe__table">
@@ -134,7 +147,7 @@
                         <td>disposicion</td>
                         <td>958</td>
                         <td>varchar</td>
-                        <td>Norte/Sur/Este/Oeste</td>
+                        <td>Frente/Contrafrente/Lateral/Interno</td>
                     </tr>
                     <tr>
                         <td>orientacion</td>
@@ -152,12 +165,12 @@
                         <td>moneda_precio</td>
                         <td>1747</td>
                         <td>varchar</td>
-                        <td>Pesos Argentinos</td>
+                        <td>($) Pesos Argentinos</td>
                     </tr>
                     <tr>
                         <td>temp_id</td>
                         <td>1747</td>
-                        <td>int64</td>
+                        <td>integer</td>
                         <td>Id temporal para operaciones</td>
                     </tr>
                     <tr>
@@ -169,67 +182,67 @@
                     <tr>
                         <td>m2_totales</td>
                         <td>1747</td>
-                        <td>int64</td>
+                        <td>integer</td>
                         <td>Metros cuadrados totales</td>
                     </tr>
                     <tr>
                         <td>m2_cubiertos</td>
                         <td>1685</td>
-                        <td>Int64</td>
+                        <td>integer</td>
                         <td>Metros cuadrados cubiertos</td>
                     </tr>
                     <tr>
                         <td>m2_balcon</td>
                         <td>220</td>
-                        <td>Int64</td>
+                        <td>integer</td>
                         <td>Metros cuadrados del balcón</td>
                     </tr>
                     <tr>
                         <td>ambientes</td>
                         <td>1747</td>
-                        <td>int64</td>
+                        <td>integer</td>
                         <td>Cantidad de ambientes</td>
                     </tr>
                     <tr>
                         <td>dormitorios</td>
                         <td>1747</td>
-                        <td>int64</td>
+                        <td>integer</td>
                         <td>Cantidad de dormitorios</td>
                     </tr>
                     <tr>
                         <td>banios</td>
                         <td>1747</td>
-                        <td>int64</td>
+                        <td>integer</td>
                         <td>Cantidad de baños</td>
                     </tr>
                     <tr>
                         <td>cocheras</td>
                         <td>1747</td>
-                        <td>int64</td>
+                        <td>integer</td>
                         <td>Cantidad de cocheras</td>
                     </tr>
                     <tr>
                         <td>ubicacion_piso</td>
                         <td>373</td>
-                        <td>Int64</td>
+                        <td>integer</td>
                         <td>El piso en el que se encuentra el inmueble</td>
                     </tr>
                     <tr>
                         <td>antiguedad_en_anios</td>
                         <td>1584</td>
-                        <td>Int64</td>
+                        <td>integer</td>
                         <td>Antiguedad del inmueble</td>
                     </tr>
                     <tr>
                         <td>precio</td>
                         <td>1747</td>
-                        <td>int64</td>
+                        <td>integer</td>
                         <td>Precio en pesos argentinos</td>
                     </tr>
                     <tr>
                         <td>expensas</td>
                         <td>1570</td>
-                        <td>int64</td>
+                        <td>integer</td>
                         <td>Precio de las expensas en pesos argentinos</td>
                     </tr>
                 </table>    
@@ -240,7 +253,7 @@
 
             <h2 class="neighborhood__title">Distribución de Ofertas de Alquiler por Barrio en la Ciudad Autónoma de Buenos Aires</h2>
             
-            <p class="neighborhood__p">El universo de los 1744 departamentos en alquiler comprende 44 barrios de la Ciudad Autónoma de Buenos Aires, con una media de 41 ofertas por barrio.</p>
+            <p class="neighborhood__p">El universo de los 1747 departamentos en alquiler comprende 44 barrios de la Ciudad Autónoma de Buenos Aires, con una media de 41 ofertas por barrio.</p>
 
             <p class="neighborhood__p">En la cúspide de la distribución, Palermo destaca con 297 alquileres, representando el 17% del total. En contraste, La Boca ocupa el último lugar con tan sólo 1 departamento en alquiler.</p>
 
