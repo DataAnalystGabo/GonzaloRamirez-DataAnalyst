@@ -1,45 +1,103 @@
-const ctx = document.getElementById("ambientes");
+const ctx_ambientes = document.getElementById("environments");
+const ctx_dormitorios = document.getElementById("rooms");
+const ctx_bathrooms = document.getElementById("bathrooms");
 
-
-
-// ctx.parentElement.style.height = "200px";
-// ctx.parentElement.style.width = "200px";
-
-
-
-
-new Chart(ctx, {
+new Chart(ctx_ambientes, {
   type: 'doughnut',
   data: {
     labels: [
       "Dos ambientes",
       "Tres ambientes",
       "Un ambientes",
-      "Dos ambientes",
-      "Cuatro ambientes"
+      "Cuatro ambientes",
+      "Cinco ambientes",
+      "Monoambientes",
+      "Seis ambientes",
+      "Siete ambientes",
+      "Ocho ambientes",
+      "Nueve ambientes",
+      "Diez ambientes"
     ],
     datasets: [{
-      label: 'Departamentos',
-      data: [689, 392, 343, 689, 199],
-      borderWidth: 1.5,
+      label: "Departamentos",
+      data: [689, 392, 343, 199, 55, 39, 21, 4, 2, 1, 1],
+      borderWidth: 2,
       borderColor: [
-        "rgba(242, 133, 133, 1)",
-        "rgba(142, 122, 181, 1)",
-        "rgba(255, 164, 71, 1)",
-        "rgba(183, 132, 183, 1)",
-        "rgba(255, 252, 155, 1)"
+        "rgba(255, 89, 94, .7)",
+        "rgba(255, 202, 58, .7)",
+        "rgba(106, 76, 147, .7)",
+        "rgba(197, 202, 48, .7)",
+        "rgba(86, 90, 160, .7)",
+        "rgba(138, 201, 38, .7)",
+        "rgba(25, 130, 196, .7)",
+        "rgba(255, 146, 76, .7)",
+        "rgba(54, 148, 157, .7)",
+        "rgba(66, 103, 172, .7)"
       ],
       backgroundColor: [
-        "rgba(242, 133, 133, .5)",
-        "rgba(142, 122, 181, .5)",
-        "rgba(255, 164, 71, .5)",
-        "rgba(183, 132, 183, .5)",
-        "rgba(255, 252, 155, .5)",
-        "rgba(228, 147, 179, .5)",
-        "rgba(183, 229, 180, .5)",
-        "rgba(238, 165, 166, .5)",
-        "rgba(145, 149, 246, .5)",
-        "rgba(251, 136, 180, .5)"
+        "rgba(255, 89, 94, .5)",
+        "rgba(255, 202, 58, .5)",
+        "rgba(106, 76, 147, .5)",
+        "rgba(197, 202, 48, .5)",
+        "rgba(86, 90, 160, .5)",
+        "rgba(138, 201, 38, .5)",
+        "rgba(25, 130, 196, .5)",
+        "rgba(255, 146, 76, .5)",
+        "rgba(54, 148, 157, .5)",
+        "rgba(66, 103, 172, .5)"
+      ]
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        display: false
+      }
+    },
+    plugins: {
+      legend: {
+        display: false
+      }
+    },
+    tooltip: {
+      enabled: true
+    }
+  }
+});
+
+
+
+new Chart(ctx_dormitorios, {
+  type: 'doughnut',
+  data: {
+    labels: [
+      "Un dormitorio",
+      "Dos dormitorios",
+      "Sin datos",
+      "Tres dormitorios",
+      "Cuatro dormitorios",
+      "Cinco dormitorios",
+      "Seis dormitorios"
+    ],
+    datasets: [{
+      label: "Departamentos",
+      data: [819, 402, 260, 222, 38, 4, 2],
+      borderWidth: 1.5,
+      borderColor: [
+        "rgba(255, 89, 94, .7)",
+        "rgba(255, 202, 58, .7)",
+        "rgba(106, 76, 147, .7)",
+        "rgba(197, 202, 48, .7)",
+        "rgba(86, 90, 160, .7)",
+        "rgba(138, 201, 38, .7)"
+      ],
+      backgroundColor: [
+        "rgba(255, 89, 94, .5)",
+        "rgba(255, 202, 58, .5)",
+        "rgba(106, 76, 147, .5)",
+        "rgba(197, 202, 48, .5)",
+        "rgba(86, 90, 160, .5)",
+        "rgba(138, 201, 38, .5)"
       ]
     }]
   },
@@ -59,6 +117,56 @@ new Chart(ctx, {
 });
 
 
+new Chart(ctx_bathrooms, {
+  type: 'doughnut',
+  data: {
+    labels: [
+      "Un baño",
+      "Dos baños",
+      "Tres baños",
+      "Sin datos",
+      "Cuatro baños",
+      "Cinco baños",
+      "Seis baños"
+    ],
+    datasets: [{
+      label: "Baños",
+      data: [1285, 320, 79, 30, 22, 9, 2],
+      borderWidth: 1.5,
+      borderColor: [
+        "rgba(255, 89, 94, .7)",
+        "rgba(255, 202, 58, .7)",
+        "rgba(106, 76, 147, .7)",
+        "rgba(197, 202, 48, .7)",
+        "rgba(86, 90, 160, .7)",
+        "rgba(138, 201, 38, .7)",
+        "rgba(25, 130, 196, .7)"
+      ],
+      backgroundColor: [
+        "rgba(255, 89, 94, .5)",
+        "rgba(255, 202, 58, .5)",
+        "rgba(106, 76, 147, .5)",
+        "rgba(197, 202, 48, .5)",
+        "rgba(86, 90, 160, .5)",
+        "rgba(138, 201, 38, .5)",
+        "rgba(25, 130, 196, .5)"
+      ]
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        display: false
+      }
+    },
+    plugins: {
+      legend: {
+        display: false
+      }
+    },
+    maintainAspectRatio: false
+  }
+});
 
 
 

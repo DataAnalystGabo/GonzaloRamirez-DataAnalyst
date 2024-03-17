@@ -229,6 +229,7 @@ html {
 
 .name__title{
     margin: 0;
+    font-family: 'Public Sans', sans-serif;;
     font-size: 5em;
     font-weight: 700;
     color: var(--primary-color);
