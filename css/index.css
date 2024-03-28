@@ -345,11 +345,15 @@ html {
 .experience__wrapper{
     width: 60%;
     max-width: 1200px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 2em;
+    display: grid;
+    grid-template-areas: "header header header"
+                        "path description description";
     margin: 4em 0;
+}
+
+.experience__title{
+    font-size: 3em;
+    grid-area: header;
 }
 
 .experience__path{
@@ -358,6 +362,8 @@ html {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-self: center;
+    grid-area: path;
 }
 
 .experience__icon{
@@ -381,6 +387,8 @@ html {
 
 .experience__description{
     font-size: 1.2em;
+    margin-left: 1em;
+    grid-area: description;
 }
 
 .experience__paragraph{
@@ -718,4 +726,12 @@ html {
         font-size: 2em;
     }
 
+    /*Sección Trabajos*/
+    .experience__wrapper{
+        width: 80%;
+    }
+
+    .experience__title{
+        font-size: 2em;
+    }
 }
