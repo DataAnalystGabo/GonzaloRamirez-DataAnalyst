@@ -61,12 +61,6 @@ html {
     opacity: .6;
 }
 
-.header__icon{
-    width: 2.1em;
-    height: 2.1em;
-    padding-right: 1em;
-}
-
 .header__menu{
     height: max-content;
 }
@@ -92,6 +86,12 @@ html {
 
 .header__icons{
     display: none;
+}
+
+.header__icons--linkedin{
+    display: block;
+    width: 1.6em;
+    padding-right: 1em;
 }
 
 .header__a{
@@ -293,8 +293,8 @@ html {
     opacity: 1;
 }
 
-/*--------------------Seccion ¿Quién soy?------------------------------------------*/
 
+/*--------------------Seccion ¿Quién soy?------------------------------------------*/
 .quiensoy{
     display: flex;
     justify-content: center;
@@ -335,55 +335,60 @@ html {
     margin-bottom: .6em;
 }
 
-/*------------------------Sección Stack de Herramientas----------------------------*/
 
-.stack{
+/*--------------------Seccion Experiencia------------------------------------------*/
+.experience{
     display: flex;
     justify-content: center;
 }
 
-.stack__wrapper{
+.experience__wrapper{
     width: 60%;
     max-width: 1200px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
-    align-items: start;
+    gap: 2em;
     margin: 4em 0;
 }
 
-.stack__title{
-    font-size: 3em;
-    font-weight: 800;
-}
-
-.stack__ul{
+.experience__path{
+    width: 2em;
+    height: 20em;
     display: flex;
     flex-direction: column;
-    list-style: none;
-    padding: 0;
-}
-
-.stack__li{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
-    margin-bottom: 1em;
 }
 
-.stack__icon{
-    width: 3.5em;
-    margin-right: 1em;
+.experience__icon{
+    width: 2.2em;
+    margin-bottom: -.2em;
 }
 
-.stack__p{
+.experience__line{
+    display: block;
+    width: .2em;
+    height: 16em;
+    background-color: var(--primary-color);
+}
+
+.experience__circle{
+    width: .8em;
+    height: .8em;
+    background-color: var(--primary-color);
+    border-radius: 100%;
+}
+
+.experience__description{
     font-size: 1.2em;
 }
 
+.experience__paragraph{
+    margin: .2em 0 0 0;
+}
+
+
 /*-----------------------Seccion Trabajos------------------------------------------*/
-
-
 .projects{
     display: flex;
     justify-content: center;
@@ -473,7 +478,6 @@ html {
     background-color: #37db0026;
 }
 
-
 .pill__icon{
     width: 1em;
     height: 1em;
@@ -521,9 +525,54 @@ html {
 }
 
 
+/*------------------------Sección Stack de Herramientas----------------------------*/
+
+.stack{
+    display: flex;
+    justify-content: center;
+}
+
+.stack__wrapper{
+    width: 60%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin: 4em 0;
+}
+
+.stack__title{
+    font-size: 3em;
+    font-weight: 800;
+}
+
+.stack__ul{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+}
+
+.stack__li{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.stack__icon{
+    width: 3.5em;
+    margin-right: 1em;
+}
+
+.stack__p{
+    font-size: 1.2em;
+}
+
 
 /*-----------------Estilos para tablets--------------------------------------------*/
-
 @media only screen and (max-width: 991px) {
 
     /*Menu responsive*/
@@ -580,6 +629,12 @@ html {
 
     .header__icons{
         display: block;
+        width: 1.9em;
+        padding-right: 1em;
+    }
+
+    .header__icons--linkedin{
+        display: block;
         width: 1.6em;
         padding-right: 1em;
     }
@@ -609,7 +664,6 @@ html {
 
 
 /*------------------Estilos para dispositivos móviles------------------------------*/
-
 @media only screen and (max-width: 767px) {
 
     /*Pagina de inicio*/
