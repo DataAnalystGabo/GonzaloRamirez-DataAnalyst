@@ -1,17 +1,18 @@
-const ctx_ambientes = document.getElementById("environments");
+const ctx_ambientes = document.getElementById("environments").getContext("2d");
 const ctx_dormitorios = document.getElementById("rooms");
 const ctx_bathrooms = document.getElementById("bathrooms");
 
+
 new Chart(ctx_ambientes, {
-  type: 'doughnut',
+  type: "bar",
   data: {
     labels: [
       "Dos ambientes",
       "Tres ambientes",
-      "Un ambientes",
+      "Un ambiente",
       "Cuatro ambientes",
       "Cinco ambientes",
-      "Monoambientes",
+      "Monoambiente",
       "Seis ambientes",
       "Siete ambientes",
       "Ocho ambientes",
@@ -19,9 +20,20 @@ new Chart(ctx_ambientes, {
       "Diez ambientes"
     ],
     datasets: [{
-      label: "Departamentos",
+      label:"",
       data: [689, 392, 343, 199, 55, 39, 21, 4, 2, 1, 1],
-      borderWidth: 2,
+      backgroundColor: [
+        "rgba(255, 89, 94, .5)",
+        "rgba(255, 202, 58, .5)",
+        "rgba(106, 76, 147, .5)",
+        "rgba(197, 202, 48, .5)",
+        "rgba(86, 90, 160, .5)",
+        "rgba(138, 201, 38, .5)",
+        "rgba(25, 130, 196, .5)",
+        "rgba(255, 146, 76, .5)",
+        "rgba(54, 148, 157, .5)",
+        "rgba(66, 103, 172, .5)"
+      ],
       borderColor: [
         "rgba(255, 89, 94, .7)",
         "rgba(255, 202, 58, .7)",
@@ -34,35 +46,35 @@ new Chart(ctx_ambientes, {
         "rgba(54, 148, 157, .7)",
         "rgba(66, 103, 172, .7)"
       ],
-      backgroundColor: [
-        "rgba(255, 89, 94, .5)",
-        "rgba(255, 202, 58, .5)",
-        "rgba(106, 76, 147, .5)",
-        "rgba(197, 202, 48, .5)",
-        "rgba(86, 90, 160, .5)",
-        "rgba(138, 201, 38, .5)",
-        "rgba(25, 130, 196, .5)",
-        "rgba(255, 146, 76, .5)",
-        "rgba(54, 148, 157, .5)",
-        "rgba(66, 103, 172, .5)"
-      ]
+      borderWidth: 2
     }]
   },
   options: {
-    scales: {
-      y: {
-        display: false
-      }
-    },
+    tooltips: false,
     plugins: {
-      legend: {
-        display: false
+		datalabels: {
+       anchor: 'end',
+       backgroundColor: function(context) {
+        return context.dataset.backgroundColor;
+       },
+       borderColor: 'white',
+       borderRadius: 5,
+       borderWidth: 0,
+       color: 'white',
+       display: function(context) {
+         let dataset = context.dataset;
+         let count = dataset.data.length;
+         let value = dataset.data[context.dataIndex];
+         return value > count * 1.5;
+       },
+       formatter: Math.round,
+       font: {
+         weight: 'bold',
+         size: '16'
+       },
       }
     },
-    tooltip: {
-      enabled: true
-    }
-  }
+  },
 });
 
 

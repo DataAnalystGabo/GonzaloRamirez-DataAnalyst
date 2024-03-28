@@ -42,7 +42,7 @@
     margin: 0 0 6em 0;
 }
 
-.introduction__title, .methodology__title, .dataframe__title, .neighborhood__title, .environments__title{
+.introduction__title, .methodology__title, .dataframe__title, .neighborhood__title, .features__title{
     width: 100%;
     font-size: 1.5em;
     padding-bottom: 1em;
@@ -50,7 +50,7 @@
     border-bottom: 3px solid rgba(149, 178, 167, .5);
 }
 
-.index, .introduction__p, .methodology__p, .dataframe__p, .neighborhood__p, .environments__p{
+.index, .introduction__p, .methodology__p, .dataframe__p, .neighborhood__p, .features__p{
     font-size: 1.2em;
     line-height: 1.5em;
 }
@@ -155,31 +155,29 @@ tr:nth-child(even){
 }
 /*================================================================================================================================
 ==================================================================================================================================*/
-.environments{
+.features{
     width: 100%;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    flex-direction: column;
     border: 1px solid yellow;
 }
 
-.environments__insight{
-    width: 18em;
+.features__insight{
+    width: 100%;
     display: flex;
     flex-direction: column;
     margin-bottom: 6em;
-    border: 1px solid yellow;
+    border: 1px solid red;
 }
 
-.environments__legend{
+.features__legend{
     font-size: 1.2em;
     margin-bottom: 1em;
     padding: 1em 0;
     text-align: center;
 }
 
-.environments__chart{
+.features__chart{
     width: 100%;
 }
 /*================================================================================================================================
