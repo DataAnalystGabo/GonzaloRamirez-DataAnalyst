@@ -94,6 +94,12 @@ html {
     padding-right: 1em;
 }
 
+.header__icons--back{
+    display: block;
+    width: 1.2em;
+    margin-right: 1em;
+}
+
 .header__a{
     text-decoration: none;
     color: var(--primary-color);
@@ -673,6 +679,12 @@ html {
 
 /*------------------Estilos para dispositivos móviles------------------------------*/
 @media only screen and (max-width: 767px) {
+    /*Header*/
+    .header__icons--back{
+        width: 1.2em;
+        margin-right: .3em;
+        padding: 0;
+    }
 
     /*Pagina de inicio*/
     .name__title{
